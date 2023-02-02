@@ -11,15 +11,6 @@ body {
 
 /* navigation menu */
 
-/* 
-
-Unfinished attempt to center text. Fix Soon
-
-#NavigationBar {
-    
-} 
-
-*/
 nav {
     background: rgb(99, 86, 128);
    margin: 0 auto;
@@ -46,8 +37,13 @@ h1 {
 }
 a {
     text-decoration: none;
-    color: #fff;
+    color:rgb(224, 245, 255);
 }
+
+#nav-ul a:hover {
+    color: rgb(165, 226, 255);
+}
+
 #titledrop {
     text-align: center;
     align-self: flex-end;
@@ -74,18 +70,47 @@ main {
     border-color: rgb(99, 86, 128);
 }
 li {
-    color:rgb(224, 245, 255);
+    color:rgb(rgb(224, 245, 255));
 }
 p {
     color:rgb(224, 245, 255);
 }
 
-/* portfolio styles */
+/* interests styles */
 #interests {
     padding: 8px;
     align-self: flex-end;
+    color: #fff;
 }
 h2, h3 {
     margin: 0px;
     color: #fff;
+}
+
+ /* portfolio styles */
+ .content h1 {
+    color: rgb(255, 255, 255);
+}
+
+#portfolio {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#portfolio li {
+    background: #fff;
+    padding: 10px;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    border-style: double;
+    border-color:rgb(99, 86, 128);
+}
+
+#portfolio li:hover {
+    background: rgb(224, 245, 255);
+}
+
+#portfolio a {
+    text-decoration: none;
+    color: rgb(99, 86, 128);
 }
