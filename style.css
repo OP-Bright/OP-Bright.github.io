@@ -10,6 +10,16 @@ body {
 }
 
 /* navigation menu */
+
+/* 
+
+Unfinished attempt to center text. Fix Soon
+
+#NavigationBar {
+    
+} 
+
+*/
 nav {
     background: rgb(99, 86, 128);
    margin: 0 auto;
