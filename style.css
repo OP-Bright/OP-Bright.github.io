@@ -13,17 +13,17 @@ body {
 
 nav {
     background: rgb(99, 86, 128);
-   margin: 0 auto;
+   margin: 0px;
     display: flex;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 0px;
     border-style:double;
     border-color: rgb(224, 245, 255);
 }
 h1 {
     display: flex;
-    align-items: center;
+    text-align: center;
     color: white;
     flex: 1;
     margin: 0;
@@ -46,10 +46,9 @@ a {
 
 #titledrop {
     text-align: center;
-    align-self: flex-end;
 }
 
-/* main container area beneath menu */
+/* main container area beneath nav */
 main {
     background: rgb(99, 86, 128);
     display: flex;
@@ -73,7 +72,7 @@ li {
     color:rgb(rgb(224, 245, 255));
 }
 p {
-    color:rgb(224, 245, 255);
+    color:#fff;
 }
 
 /* interests styles */
