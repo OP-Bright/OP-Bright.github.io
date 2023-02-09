@@ -338,17 +338,17 @@ function projectileCollision() {
 }
 
 function deathOfPlayer() {
-  ctx.fillStyle = "grey";
+  ctx.fillStyle = "rgb(33, 32, 54)";
   ctx.fillRect(
     canvas.width / 4,
     canvas.height / 6,
     canvas.width / 2,
     canvas.height / 2
   );
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "white";
   ctx.font = "800% serif";
   ctx.fillText(
-    "You are dead",
+    "Skill Issue",
     canvas.width / 4,
     canvas.height / 6 + canvas.height / 5,
     (canvas.width / 16) * 14
@@ -362,7 +362,7 @@ function deathOfPlayer() {
   );
   if (keyPress.any) {
     keyPress.any = false;
-    resetVariables();
+    window.location.reload();
   }
 }
 
@@ -392,7 +392,7 @@ function playerFrictionAndGravity() {
 
 function drawPlatforms() {
   for (var i = 0; i < platforms.length; i++) {
-    ctx.fillStyle = "grey";
+    ctx.fillStyle = "rgb(33, 32, 54)";
     ctx.fillRect(
       platforms[i].x,
       platforms[i].y,
