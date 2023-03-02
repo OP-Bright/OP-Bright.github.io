@@ -1,0 +1,12 @@
+note to self:
+
+saving changes:
+git add .
+git commit -m "message"
+git push
+
+cancelling changes:
+git reset --hard
+
+This shouldn't be a problem but for some reason gitpod really hates the idea of NOT
+saving dumb changes. Also why is saving so inconvienient?!?!?!?
