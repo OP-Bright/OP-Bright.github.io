@@ -116,6 +116,8 @@ var init = function (window) {
                 circle.y = canvas.height + circle.radius;
             }
 
+            //the circle.radius addition/subtraction allows for more smooth transistions.
+
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
         }
         
