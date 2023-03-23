@@ -10,3 +10,6 @@ git reset --hard
 
 This shouldn't be a problem but for some reason gitpod really hates the idea of NOT
 saving dumb changes. Also why is saving so inconvienient?!?!?!?
+
+PERSONAL TO-DO:
+Make some new art for the website, and edit the CSS to not be broken anymore.
