@@ -25,6 +25,23 @@
                               between [0,100]
     hud.kill() - special animation for the integrity meter when it reaches zero
      */
+
+    /* Rowan: changes that I want to make to the hud:
+    First, I think the visuals need to be improved. I would like the healthbar
+    to not just be a bar, but something segmented so you can still tell the
+    exact number of health you have. Second, the player's healthbar should be
+    on the left side of the screen.
+    
+    Secondly, I want to add in a healthbar for the boss, sinTax. It should look
+    almost identical to the players but be on the right side instead, the same
+    place as the boss. Instead of the HP going down when the player is hit it
+    should go down when sinTax is hit. This should be acheived with a variable
+    called bossHP and it goes down when any of the bullets that Halle shoots
+    reaches the right side of the screen. (This also means we need to change how the
+    shot attack works.)
+    
+    This isn't going to be easy to do and it mostly a note for myself to do it later.*/
+
     window.opspark.makeHud = function () {
         var hud, background, score, of, txtScore, integrity, integrityMeter;
         
