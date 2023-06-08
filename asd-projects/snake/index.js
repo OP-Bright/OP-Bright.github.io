@@ -50,7 +50,7 @@ function init() {
   snake.head = snake.body[0];
   
   // TODO 8: initialize the first apple
-
+  makeApple();
 
   // start update interval
   updateInterval = setInterval(update, 100);
@@ -95,7 +95,21 @@ function moveSnake() {
   
   /* 
   TODO 6: determine the next row and column for the snake's head
-  
+  */
+  if (snake.head.direction === 'left') {
+  snake.head.column = snake.head.column - 1;
+}
+if (snake.head.direction === 'right') {
+  snake.head.column = snake.head.column + 1;
+}
+if (snake.head.direction === 'up') {
+  snake.head.row = snake.head.row - 1;
+}
+if (snake.head.direction === 'down') {
+  snake.head.row = snake.head.row + 1;
+}
+repositionSquare(snake.head);
+/*
   HINT: The snake's head will need to move forward 1 square based on the value
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
@@ -114,10 +128,19 @@ function checkForNewDirection(event) {
   if (activeKey === KEY.LEFT) { 
     snake.head.direction = "left"; 
   }
+  if (activeKey === KEY.RIGHT) { 
+    snake.head.direction = "right"; 
+  }
+  if (activeKey === KEY.UP) { 
+    snake.head.direction = "up"; 
+  }
+  if (activeKey === KEY.DOWN) { 
+    snake.head.direction = "down"; 
+  }
 
   // FILL IN THE REST
   
-  // console.log(snake.head.direction);     // uncomment me!
+  // console.log(snake.head.direction);     // uncomment me! <-- no, i was told to comment it back out. sucks to be you.
 }
 
 function hasCollidedWithApple() {
@@ -178,7 +201,13 @@ function hasHitWall() {
   HINT: What will the row and column of the snake's head be if this were the case?
   */
   
-  return false;
+  if (snake.head.row >= ROWS || snake.head.column >= COLUMNS) {
+    return true;
+  } else {
+    return false;
+  }
+  
+  
 }
 
 function endGame() {
