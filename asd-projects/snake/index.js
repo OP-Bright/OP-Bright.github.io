@@ -88,17 +88,14 @@ function moveSnake() {
   
   */
 
-  for (var i = 1; i < snake.body[snake.body.length]; i++) {
+  for (var i = snake.body.length - 1; i >= 1; i--) {
     var snakeSquare = snake.body[i];
-    
     var nextSnakeSquare = snake.body[i - 1];
-    var nextRow = nextSnakeSquare.row;
-    var nextColumn = nextSnakeSquare.column;
-    var nextDirection = nextSnakeSquare.direction;
-    
-    snakeSquare.direction = nextDirection;
-    snakeSquare.row = nextRow;
-    snakeSquare.column = nextColumn;
+   
+    snakeSquare.direction = nextSnakeSquare.direction
+
+    snakeSquare.row = nextSnakeSquare.row;
+    snakeSquare.column = nextSnakeSquare.column;
     repositionSquare(snakeSquare);
   }
    
@@ -190,18 +187,17 @@ function handleAppleCollision() {
   etc...
   */ 
 
+  var row = snake.tail.row;
+  var column = snake.tail.column;
+
  if (snake.tail.direction === "up") {
-  var row = snake.tail.row + 1;
-  var column = snake.tail.column;
+  row = snake.tail.row + 1;
  } else if (snake.tail.direction === "down") {
-  var row = snake.tail.row - 1;
-  var column = snake.tail.column;
+  row = snake.tail.row - 1;
  } else if (snake.tail.direction === "right") {
-  var row = snake.tail.row;
-  var column = snake.tail.column - 1;
+  column = snake.tail.column - 1;
  } else if (snake.tail.direction === "left") {
-  var row = snake.tail.row;
-  var column = snake.tail.column + 1;
+  column = snake.tail.column + 1;
  }
  
   // code to determine the row and column of the snakeSquare to add to the snake

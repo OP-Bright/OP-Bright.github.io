@@ -23,15 +23,15 @@ body {
 }
 
 .snake {
-  background-color: plum;
+  background-color: darkslateblue;
   z-index: 2;
 }
 
 #snake-head {
-  background-color: lavenderblush;
+  background-color: slateblue;
 }
 
 .apple {
-  background-color: gold;
+  background-color: white;
   z-index: 1;
 }
