@@ -52,6 +52,9 @@ function applyAndRender() {
 
 // TODO 5: Create the keepInBounds function
 
+function keepInBounds (num) {
+  return (num < 0) ? 0 : (num > 255) ? 255 : num;
+}
 
 // TODO 3: Create reddify function
 
@@ -60,6 +63,9 @@ function reddify (array) {
   array[RED] = 200;
 }
 
+function decreaseBlue (array) {
+  array[BLUE] = keepInBounds(array[BLUE] -= 50);
+}
 
 // TODO 6: Create more filter functions
 
