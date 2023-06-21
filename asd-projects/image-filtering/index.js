@@ -36,18 +36,13 @@ function applyAndRender() {
   function applyFilter () {
     for (colorArray of image) {
       let singleArray = colorArray;
-      for (string of singleArray) {
-        let rgbString = singleArray[string];
-        debugger;
-        console.log(singleArray[string])
-        //this will NEVER work. 
-        //even though it shows singleArray[string] IS "rgb(150, 150, 150"... 
-        //it sets the variable to undefined ANYWAY. 
-        //Something is deeply broken here, use the debugger and see for yourself.
+      for (let i = 0; i < singleArray.length; i++) {
+        let rgbString = singleArray[i];
+        console.log(singleArray[i])
         let rgbNumbers = rgbStringToArray(rgbString);
         rgbNumbers[RED] = 255;
         rgbString = rgbArrayToString(rgbNumbers);
-        singleArray[string] = rgbString;
+        singleArray[i] = rgbString;
       }
     }
   }
