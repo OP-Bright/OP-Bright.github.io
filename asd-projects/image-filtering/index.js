@@ -21,8 +21,8 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
   applyFilter(reddify);
-  
-
+  applyFilterNoBackground(increaseGreenByBlue);
+  applyFilterNoBackground(decreaseBlue);
   // do not change the below line of code
   render($("#display"), image);
 }
@@ -49,6 +49,25 @@ function applyAndRender() {
 
 // TODO 7: Create the applyFilterNoBackground function
 
+function applyFilterNoBackground (filterFunction) {
+  let backgroundColor = image[0][0];
+  for (let colorArray of image) {
+    let singleArray = colorArray;
+    for (let i = 0; i < singleArray.length; i++) {
+      if (singleArray[i] === backgroundColor) {
+        continue;
+      } else {
+        let rgbString = singleArray[i];
+        console.log(singleArray[i])
+        let rgbNumbers = rgbStringToArray(rgbString);
+        filterFunction(rgbNumbers);
+        rgbString = rgbArrayToString(rgbNumbers);
+        singleArray[i] = rgbString;
+      }
+
+    }
+  }
+}
 
 // TODO 5: Create the keepInBounds function
 
@@ -63,11 +82,30 @@ function reddify (array) {
   array[RED] = 200;
 }
 
+// TODO 6: Create more filter functions
+
+//this makes the image less blue
 function decreaseBlue (array) {
   array[BLUE] = keepInBounds(array[BLUE] -= 50);
 }
 
-// TODO 6: Create more filter functions
+//this should make the image more green if there's any blue in the image
+function increaseGreenByBlue (array) {
+  array[GREEN] = keepInBounds(array[BLUE] + array[GREEN])
+}
 
+//this wasn't part of the project, i just wanted to make this.
+function brighten (array) {
+  array[RED] = keepInBounds(array[RED] += 50)
+  array[GREEN] = keepInBounds(array[GREEN] += 50)
+  array[BLUE] = keepInBounds(array[BLUE] += 50)
+  //(i'm aware this is repetitive, but i think it reads easier, and it's optional anyway.)
+}
+
+function darken (array) {
+  array[RED] = keepInBounds(array[RED] -= 50)
+  array[GREEN] = keepInBounds(array[GREEN] -= 50)
+  array[BLUE] = keepInBounds(array[BLUE] -= 50)
+}
 
 // CHALLENGE code goes below here
