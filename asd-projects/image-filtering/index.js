@@ -20,7 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-
+  applyFilter();
   
 
   // do not change the below line of code
@@ -33,6 +33,20 @@ function applyAndRender() {
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 
+  function applyFilter () {
+    for (colorArray of image) {
+      let singleArray = colorArray;
+      for (string of singleArray) {
+        let rgbString = singleArray[string];
+        console.log(singleArray[string])
+        //this will NEVER work. even though singleArray[string] === "rgb(150, 150, 150", it somehow is also === undefined. Something is deeply broken here.
+        let rgbNumbers = rgbStringToArray(rgbString);
+        rgbNumbers[RED] = 255;
+        rgbString = rgbArrayToString(rgbNumbers);
+        singleArray[string] = rgbString;
+      }
+    }
+  }
 
 // TODO 7: Create the applyFilterNoBackground function
 
