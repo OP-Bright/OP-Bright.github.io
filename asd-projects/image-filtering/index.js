@@ -39,7 +39,7 @@ function applyAndRender() {
       for (string of singleArray) {
         let rgbString = singleArray[string];
         console.log(singleArray[string])
-        //this will NEVER work. even though singleArray[string] === "rgb(150, 150, 150", it somehow is also === undefined. Something is deeply broken here.
+        //this will NEVER work. even though singleArray[string] === "rgb(150, 150, 150", it somehow is also === undefined. Something is deeply broken here, use a debugger and see for yourself.
         let rgbNumbers = rgbStringToArray(rgbString);
         rgbNumbers[RED] = 255;
         rgbString = rgbArrayToString(rgbNumbers);
