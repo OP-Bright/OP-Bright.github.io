@@ -20,7 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-  applyFilter();
+  applyFilter(reddify);
   
 
   // do not change the below line of code
@@ -33,14 +33,14 @@ function applyAndRender() {
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 
-  function applyFilter () {
-    for (colorArray of image) {
+  function applyFilter (filterFunction) {
+    for (let colorArray of image) {
       let singleArray = colorArray;
       for (let i = 0; i < singleArray.length; i++) {
         let rgbString = singleArray[i];
         console.log(singleArray[i])
         let rgbNumbers = rgbStringToArray(rgbString);
-        rgbNumbers[RED] = 255;
+        filterFunction(rgbNumbers);
         rgbString = rgbArrayToString(rgbNumbers);
         singleArray[i] = rgbString;
       }
@@ -54,6 +54,11 @@ function applyAndRender() {
 
 
 // TODO 3: Create reddify function
+
+//this makes the image red.
+function reddify (array) {
+  array[RED] = 200;
+}
 
 
 // TODO 6: Create more filter functions
