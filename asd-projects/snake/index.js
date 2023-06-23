@@ -301,8 +301,28 @@ function repositionSquare(square) {
   var buffer = 20;
   
   // position the square on the screen according to the row and column
-  squareElement.css('left', column * SQUARE_SIZE + buffer);
-  squareElement.css('top', row * SQUARE_SIZE + buffer);
+  if (square.direction === "left") {
+    squareElement.css('left', column * SQUARE_SIZE + buffer);
+    squareElement.css('top', row * SQUARE_SIZE + buffer);
+    squareElement.css('rotate', "-90deg");
+  } else if (square.direction === "right") {
+    squareElement.css('left', column * SQUARE_SIZE + buffer);
+    squareElement.css('top', row * SQUARE_SIZE + buffer);
+    squareElement.css('rotate', "90deg");
+  }
+  else if (square.direction === "up") {
+    squareElement.css('left', column * SQUARE_SIZE + buffer);
+    squareElement.css('top', row * SQUARE_SIZE + buffer);
+    squareElement.css('rotate', "0deg");
+  } else if (square.direction === "down") {
+    squareElement.css('left', column * SQUARE_SIZE + buffer);
+    squareElement.css('top', row * SQUARE_SIZE + buffer);
+    squareElement.css('rotate', "180deg");
+  } else {
+    squareElement.css('left', column * SQUARE_SIZE + buffer);
+    squareElement.css('top', row * SQUARE_SIZE + buffer);
+  }
+  
 }
 
 /* Create an HTML element for the apple using jQuery. Then find a random 

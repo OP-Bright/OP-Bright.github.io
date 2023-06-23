@@ -23,12 +23,14 @@ body {
 }
 
 .snake {
-  background-color: darkslateblue;
   z-index: 2;
+  background-image: url("./Snake-Body.png");
+  background-size: cover;
 }
 
 #snake-head {
-  background-color: slateblue;
+  background-image: url("./Snake-Head.png");
+  background-size: cover;
 }
 
 .apple {
