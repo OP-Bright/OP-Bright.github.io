@@ -301,6 +301,10 @@ function repositionSquare(square) {
   var buffer = 20;
   
   // position the square on the screen according to the row and column
+  if (square.tail) {
+    //squareElement.css('background-image', `url("./Snake-Tail.png")`);
+    console.log("the tail exists")
+  }
   if (square.direction === "left") {
     squareElement.css('left', column * SQUARE_SIZE + buffer);
     squareElement.css('top', row * SQUARE_SIZE + buffer);
