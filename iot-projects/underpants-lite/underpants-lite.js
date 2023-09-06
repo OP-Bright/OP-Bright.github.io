@@ -11,6 +11,15 @@ var _ = {};
 * Implement each function below it's instructions
 */
 
+// -.identity
+// "Just a warmup"
+// Apparantly it just... returns what it's given. Kind of silly.
+
+function identity (input) {
+    return input;
+}
+
+// SKIP //
 /** _.typeOf
 * Arguments:
 *   1) Any value
@@ -30,7 +39,7 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+// SKIP //
 
 /** _.first
 * Arguments:
@@ -49,6 +58,29 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+
+function first (arr, num) {
+    if (Array.isArray(arr) === false) {
+        return [];
+    }
+    else if (typeof(num) !== "number") {
+        return arr[0];
+    }
+    else if (num < 0) {
+        return [];
+    }
+    else {
+        var result = [];
+        for (i = 0; i < arr.length; i++) {
+            if (i < num) {
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    }
+    
+}
+
 
 
 /** _.last
@@ -69,6 +101,27 @@ var _ = {};
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+function last (arr, num) {
+    if (Array.isArray(arr) === false) {
+        return [];
+    }
+    else if (typeof(num) !== "number") {
+        return arr[0];
+    }
+    else if (num < 0) {
+        return [];
+    }
+    else {
+        var result = [];
+        for (i = 0; i < arr.length; i++) {
+            if (i > arr.length - (num + 1)) {
+                result.push(arr[i]);
+            }
+        }
+        return result;
+    }
+    
+}
 
 /** _.indexOf
 * Arguments:
