@@ -139,6 +139,15 @@ function last (arr, num) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+function indexOf (arr, val) {
+        var result = -1;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === val) {
+                return i;
+            }
+         }
+        return -1;
+}
 
 /** _.contains
 * Arguments:
