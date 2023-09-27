@@ -31,7 +31,7 @@ var _ = {
         }
         else {
             var result = [];
-            for (i = 0; i < arr.length; i++) {
+            for (let i = 0; i < arr.length; i++) {
                 if (i < num) {
                     result.push(arr[i]);
                 }
@@ -55,7 +55,7 @@ var _ = {
         }
         else {
             var result = [];
-            for (i = 0; i < arr.length; i++) {
+            for (let i = 0; i < arr.length; i++) {
                 if (i > arr.length - (num + 1)) {
                     result.push(arr[i]);
                 }
@@ -72,7 +72,15 @@ var _ = {
             }
          }
         return -1;
-}
+    },
+    contains: function (arr, val) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === val) {
+                return true;
+            }
+        }
+        return false;
+    },
 
 };
 
