@@ -3,7 +3,78 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-var _ = {};
+var _ = {
+    identity: function (input) {
+        return input;
+    },
+    typeOf: function  (input) {
+        if (Array.isArray(input) === true) {
+            return "array";
+        }
+        if (input === null) {
+            return "null";
+        }
+        return typeof input;
+    },
+    first: function (arr, num) {
+        if (Array.isArray(arr) === false) {
+            return [];
+        }
+        else if (typeof(num) !== "number") {
+            return arr[0];
+        }
+        else if (num < 0) {
+            return [];
+        }
+        else if (num > arr.length) {
+            return arr;
+        }
+        else {
+            var result = [];
+            for (i = 0; i < arr.length; i++) {
+                if (i < num) {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+        
+    },
+    last: function (arr, num) {
+        if (Array.isArray(arr) === false) {
+            return [];
+        }
+        else if (typeof(num) !== "number") {
+            return arr[arr.length-1];
+        }
+        else if (num < 0) {
+            return [];
+        }
+        else if (num > arr.length) {
+            return arr;
+        }
+        else {
+            var result = [];
+            for (i = 0; i < arr.length; i++) {
+                if (i > arr.length - (num + 1)) {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+        
+    },
+    indexOf: function (arr, val) {
+        var result = -1;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === val) {
+                return i;
+            }
+         }
+        return -1;
+}
+
+};
 
 
 /**
@@ -14,12 +85,9 @@ var _ = {};
 // -.identity
 // "Just a warmup"
 // Apparantly it just... returns what it's given. Kind of silly.
+// DONE //
 
-function identity (input) {
-    return input;
-}
 
-// SKIP //
 /** _.typeOf
 * Arguments:
 *   1) Any value
@@ -39,7 +107,7 @@ function identity (input) {
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-// SKIP //
+//DONE//
 
 /** _.first
 * Arguments:
@@ -58,28 +126,8 @@ function identity (input) {
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+//DONE//
 
-function first (arr, num) {
-    if (Array.isArray(arr) === false) {
-        return [];
-    }
-    else if (typeof(num) !== "number") {
-        return arr[0];
-    }
-    else if (num < 0) {
-        return [];
-    }
-    else {
-        var result = [];
-        for (i = 0; i < arr.length; i++) {
-            if (i < num) {
-                result.push(arr[i]);
-            }
-        }
-        return result;
-    }
-    
-}
 
 
 
@@ -100,28 +148,8 @@ function first (arr, num) {
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
+//DONE//
 
-function last (arr, num) {
-    if (Array.isArray(arr) === false) {
-        return [];
-    }
-    else if (typeof(num) !== "number") {
-        return arr[0];
-    }
-    else if (num < 0) {
-        return [];
-    }
-    else {
-        var result = [];
-        for (i = 0; i < arr.length; i++) {
-            if (i > arr.length - (num + 1)) {
-                result.push(arr[i]);
-            }
-        }
-        return result;
-    }
-    
-}
 
 /** _.indexOf
 * Arguments:
@@ -138,16 +166,7 @@ function last (arr, num) {
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-
-function indexOf (arr, val) {
-        var result = -1;
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] === val) {
-                return i;
-            }
-         }
-        return -1;
-}
+//DONE//
 
 /** _.contains
 * Arguments:
