@@ -142,7 +142,7 @@ $("#ws-chart-container").append(
 
         function doPoll() {
             $.getJSON(
-            "https://---.ngrok.io/pi/sensors/dht/temperature",
+            "https://f3dc5044859d.ngrok.io/pi/sensors/dht/temperature",
             function (result) {
                 addDataPoint(result, regData, regChart);
                 updateRegRecords(result.value);
@@ -157,7 +157,7 @@ $("#ws-chart-container").append(
         // Create a new WebSocket connection here
         
         let socket = new WebSocket(
-            "ws://---.ngrok.io/pi/sensors/dht/temperature"
+            "ws://f3dc5044859d.ngrok.io/pi/sensors/dht/temperature"
         )
 
         socket.onmessage = function (event) {
