@@ -97,9 +97,9 @@
                          sensorsPath +
                           "temp" +
                          '">' +
-                         data["temp"].name +
+                         data[keys].name +
                          "</a></li>";
-                        sensorslist += html;
+                        sensorsList += html;
                     }
                     $("#sensors-list").html(sensorsList);
                 },
