@@ -81,133 +81,23 @@ var _ = {
         }
         return false;
     },
-
+    each: function (collection, func) {
+        if (_.typeOf(collection) === "array") {
+            var updatedArr = []
+            for (var i = 0; i < collection.length; i++) {
+                updatedArr.push(func(collection[i], i, collection))
+            }    
+            return updatedArr;
+        }
+        if (_.typeOf(collection) === "object") {
+            var updatedObj = {};
+            for (var key in collection) {
+                updatedObj[key] = func(collection[key], key, collection);
+            }    
+            return updatedObj;
+        }
+    },
 };
-
-
-/**
-* START OF OUR LIBRARY!
-* Implement each function below it's instructions
-*/
-
-// -.identity
-// "Just a warmup"
-// Apparantly it just... returns what it's given. Kind of silly.
-// DONE //
-
-
-/** _.typeOf
-* Arguments:
-*   1) Any value
-* Objectives:
-*   1) Return the type of <value> as a string
-*       Types are one of:
-*          - "string"
-*          - "array"
-*          - "object"
-*          - "undefined"
-*          - "number"
-*          - "boolean"
-*          - "null"
-*          - "function"
-* Examples:
-* _.typeOf(134) -> "number"
-* _.typeOf("javascript") -> "string"
-* _.typeOf([1,2,3]) -> "array"
-*/
-//DONE//
-
-/** _.first
-* Arguments:
-*   1) An array
-*   2) A number
-* Objectives:
-*   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the first element in <array>.
-*   3) Otherwise, return the first <number> items of <array>
-* Edge Cases:
-*   1) What if <number> is negative?
-*   2) What if <number> is greater than <array>.length?
-* Examples:
-*   _.first("ponies", 1) -> []
-*   _.first(["a", "b", "c"], "ponies") -> "a"
-*   _.first(["a", "b", "c"], 1) -> "a"
-*   _.first(["a", "b", "c"], 2) -> ["a", "b"]
-*/
-//DONE//
-
-
-
-
-/** _.last
-* Arguments:
-*   1) An array
-*   2) A number
-* Objectives:
-*   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the last element in <array>.
-*   3) Otherwise, return the last <number> items of <array>
-* Edge Cases:
-*   1) What if <number> is negative?
-*   2) What if <number> is greater than <array>.length?
-* Examples:
-*   _.last("ponies", 2) -> []
-*   _.last(["a", "b", "c"], "ponies") -> "c"
-*   _.last(["a", "b", "c"], 1) -> "c"
-*   _.last(["a", "b", "c"], 2) -> ["b", "c"]
-*/
-//DONE//
-
-
-/** _.indexOf
-* Arguments:
-*   1) An array
-*   2) A value
-* Objectives:
-*   1) Return the index of <array> that is the first occurrance of <value>
-*   2) Return -1 if <value> is not in <array>
-*   3) Do not use [].indexOf()!
-* Edge Cases:
-*   1) What if <array> has multiple occurances of val?
-*   2) What if <val> isn't in <array>?
-* Examples:
-*   _.indexOf(["a","b","c"], "c") -> 2
-*   _.indexOf(["a","b","c"], "d") -> -1
-*/
-//DONE//
-
-/** _.contains
-* Arguments:
-*   1) An array
-*   2) A value
-* Objectives:
-*   1) Return true if <array> contains <value>
-*   2) Return false otherwise
-* Edge Cases:
-*   1) did you use === ?
-*   2) what if no <value> is given?
-* Examples:
-*   _.contains([1,"two", 3.14], "two") -> true
-*   _.contains([1,"two", 3.14], "three") -> false
-*/
-
-
-/** _.each
-* Arguments:
-*   1) A collection
-*   2) A function
-* Objectives:
-*   1) if <collection> is an array, call <function> once for each element
-*      with the arguments:
-*         the element, it's index, <collection>
-*   2) if <collection> is an object, call <function> once for each property
-*      with the arguments:
-*         the property's value, it's key, <collection>
-* Examples:
-*   _.each(["a","b","c"], function(e,i,a){ console.log(e); });
-*      -> should log "a" "b" "c" to the console
-*/
-
 
 /** _.filter
 * Arguments:
