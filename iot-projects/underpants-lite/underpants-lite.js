@@ -108,43 +108,27 @@ var _ = {
          }
         return newArr;
     },
+    map: function (collection, func) {
+        var newCollection;
+        var result;
+        if (Array.isArray(collection) === true) {
+          newCollection = [];
+          for (var i = 0; i < collection.length; i++) {
+            result = func(collection[i], i, collection);
+            newCollection.push(result);
+          }
+          return newCollection;
+        } 
+        else if (typeof collection === "object") {
+          newCollection = [];
+          for (var key in collection) {
+            result = func(collection[key], key, collection)
+            newCollection.push(result);
+          }
+          return newCollection;
+        }
+    },
 };
-
-/** _.filter
-* Arguments:
-*   1) An array
-*   2) A function
-* Objectives:
-*   1) call <function> for each element in <array> passing the arguments:
-*      the element, it's index, <array>
-*   2) save the element in a new Array if calling <function> returned true
-*   3) return the new Array
-* Edge Cases:
-*   1) What if <function> returns something other than true or false?
-* Examples:
-*   _.filter([1,2,3,4,5], function(x){ return x%2 === 0; }) -> [2,4]
-* Extra Credit:
-*   use _.each in your implementation
-*/
-
-
-/** _.map
-* Arguments:
-*   1) A collection
-*   2) a function
-* Objectives:
-*   1) if <collection> is an array, call <function> once for each element
-*      with the arguments:
-*         the element, it's index, <collection>
-*   2) if <collection> is an object, call <function> once for each property
-*      with the arguments:
-*         the property's value, it's key, <collection>
-*   3) save the return value of each <function> call in a new array
-*   4) return the new array
-* Examples:
-*   _.map([1,2,3,4], function(e){ return e * 2; }) -> [2,4,6,8]
-*/
-
 
 /** _.reject
 * Arguments:
