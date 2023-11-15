@@ -97,6 +97,17 @@ var _ = {
             return updatedObj;
         }
     },
+    filter: function filter (arr, func) {
+        var newArr = [];
+        var result;
+        for (var i = 0; i < arr.length; i++) {
+            result = func(arr[i], i, arr)
+            if (result === true) {
+                newArr.push(arr[i])
+            }
+         }
+        return newArr;
+    },
 };
 
 /** _.filter
