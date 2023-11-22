@@ -3,143 +3,68 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-var _ = {};
-
-
-/**
-* START OF OUR LIBRARY!
-* Implement each function below it's instructions
-*/
-
-// -.identity
-// "Just a warmup"
-// Apparantly it just... returns what it's given. Kind of silly.
-
-function identity (input) {
-    return input;
-}
-
-// SKIP //
-/** _.typeOf
-* Arguments:
-*   1) Any value
-* Objectives:
-*   1) Return the type of <value> as a string
-*       Types are one of:
-*          - "string"
-*          - "array"
-*          - "object"
-*          - "undefined"
-*          - "number"
-*          - "boolean"
-*          - "null"
-*          - "function"
-* Examples:
-* _.typeOf(134) -> "number"
-* _.typeOf("javascript") -> "string"
-* _.typeOf([1,2,3]) -> "array"
-*/
-// SKIP //
-
-/** _.first
-* Arguments:
-*   1) An array
-*   2) A number
-* Objectives:
-*   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the first element in <array>.
-*   3) Otherwise, return the first <number> items of <array>
-* Edge Cases:
-*   1) What if <number> is negative?
-*   2) What if <number> is greater than <array>.length?
-* Examples:
-*   _.first("ponies", 1) -> []
-*   _.first(["a", "b", "c"], "ponies") -> "a"
-*   _.first(["a", "b", "c"], 1) -> "a"
-*   _.first(["a", "b", "c"], 2) -> ["a", "b"]
-*/
-
-function first (arr, num) {
-    if (Array.isArray(arr) === false) {
-        return [];
-    }
-    else if (typeof(num) !== "number") {
-        return arr[0];
-    }
-    else if (num < 0) {
-        return [];
-    }
-    else {
-        var result = [];
-        for (i = 0; i < arr.length; i++) {
-            if (i < num) {
-                result.push(arr[i]);
-            }
+var _ = {
+    identity: function (input) {
+        return input;
+    },
+    typeOf: function  (input) {
+        if (Array.isArray(input) === true) {
+            return "array";
         }
-        return result;
-    }
-    
-}
-
-
-
-/** _.last
-* Arguments:
-*   1) An array
-*   2) A number
-* Objectives:
-*   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the last element in <array>.
-*   3) Otherwise, return the last <number> items of <array>
-* Edge Cases:
-*   1) What if <number> is negative?
-*   2) What if <number> is greater than <array>.length?
-* Examples:
-*   _.last("ponies", 2) -> []
-*   _.last(["a", "b", "c"], "ponies") -> "c"
-*   _.last(["a", "b", "c"], 1) -> "c"
-*   _.last(["a", "b", "c"], 2) -> ["b", "c"]
-*/
-
-function last (arr, num) {
-    if (Array.isArray(arr) === false) {
-        return [];
-    }
-    else if (typeof(num) !== "number") {
-        return arr[0];
-    }
-    else if (num < 0) {
-        return [];
-    }
-    else {
-        var result = [];
-        for (i = 0; i < arr.length; i++) {
-            if (i > arr.length - (num + 1)) {
-                result.push(arr[i]);
-            }
+        if (input === null) {
+            return "null";
         }
-        return result;
-    }
-    
-}
-
-/** _.indexOf
-* Arguments:
-*   1) An array
-*   2) A value
-* Objectives:
-*   1) Return the index of <array> that is the first occurrance of <value>
-*   2) Return -1 if <value> is not in <array>
-*   3) Do not use [].indexOf()!
-* Edge Cases:
-*   1) What if <array> has multiple occurances of val?
-*   2) What if <val> isn't in <array>?
-* Examples:
-*   _.indexOf(["a","b","c"], "c") -> 2
-*   _.indexOf(["a","b","c"], "d") -> -1
-*/
-
-function indexOf (arr, val) {
+        return typeof input;
+    },
+    first: function (arr, num) {
+        if (Array.isArray(arr) === false) {
+            return [];
+        }
+        else if (typeof(num) !== "number") {
+            return arr[0];
+        }
+        else if (num < 0) {
+            return [];
+        }
+        else if (num > arr.length) {
+            return arr;
+        }
+        else {
+            var result = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (i < num) {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+        
+    },
+    last: function (arr, num) {
+        if (Array.isArray(arr) === false) {
+            return [];
+        }
+        else if (typeof(num) !== "number") {
+            return arr[arr.length-1];
+        }
+        else if (num < 0) {
+            return [];
+        }
+        else if (num > arr.length) {
+            return arr;
+        }
+        else {
+            var result = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (i > arr.length - (num + 1)) {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+        
+    },
+    indexOf: function (arr, val) {
         var result = -1;
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] === val) {
@@ -147,93 +72,86 @@ function indexOf (arr, val) {
             }
          }
         return -1;
-}
-
-/** _.contains
-* Arguments:
-*   1) An array
-*   2) A value
-* Objectives:
-*   1) Return true if <array> contains <value>
-*   2) Return false otherwise
-* Edge Cases:
-*   1) did you use === ?
-*   2) what if no <value> is given?
-* Examples:
-*   _.contains([1,"two", 3.14], "two") -> true
-*   _.contains([1,"two", 3.14], "three") -> false
-*/
-
-
-/** _.each
-* Arguments:
-*   1) A collection
-*   2) A function
-* Objectives:
-*   1) if <collection> is an array, call <function> once for each element
-*      with the arguments:
-*         the element, it's index, <collection>
-*   2) if <collection> is an object, call <function> once for each property
-*      with the arguments:
-*         the property's value, it's key, <collection>
-* Examples:
-*   _.each(["a","b","c"], function(e,i,a){ console.log(e); });
-*      -> should log "a" "b" "c" to the console
-*/
-
-
-/** _.filter
-* Arguments:
-*   1) An array
-*   2) A function
-* Objectives:
-*   1) call <function> for each element in <array> passing the arguments:
-*      the element, it's index, <array>
-*   2) save the element in a new Array if calling <function> returned true
-*   3) return the new Array
-* Edge Cases:
-*   1) What if <function> returns something other than true or false?
-* Examples:
-*   _.filter([1,2,3,4,5], function(x){ return x%2 === 0; }) -> [2,4]
-* Extra Credit:
-*   use _.each in your implementation
-*/
-
-
-/** _.map
-* Arguments:
-*   1) A collection
-*   2) a function
-* Objectives:
-*   1) if <collection> is an array, call <function> once for each element
-*      with the arguments:
-*         the element, it's index, <collection>
-*   2) if <collection> is an object, call <function> once for each property
-*      with the arguments:
-*         the property's value, it's key, <collection>
-*   3) save the return value of each <function> call in a new array
-*   4) return the new array
-* Examples:
-*   _.map([1,2,3,4], function(e){ return e * 2; }) -> [2,4,6,8]
-*/
-
-
-/** _.reject
-* Arguments:
-*   1) An array
-*   2) A function
-* Objectives:
-*   1) call <function> for each element in <array> passing the arguments:
-*      the element, it's index, <array>
-*   2) save the element in a new Array if calling <function> returned false
-*   3) return the new Array
-*
-* HINT: This is the logical inverse of _.filter() - how can you use it in your implementation?
-*
-* Examples:
-*   _.reject([1,2,3,4,5], function(e){ return e%2 === 0}; ) -> [1,3,5]
-*/
-
+    },
+    contains: function (arr, val) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === val) {
+                return true;
+            }
+        }
+        return false;
+    },
+    each: function (collection, func) {
+        if (_.typeOf(collection) === "array") {
+            var updatedArr = []
+            for (var i = 0; i < collection.length; i++) {
+                updatedArr.push(func(collection[i], i, collection))
+            }    
+            return updatedArr;
+        }
+        if (_.typeOf(collection) === "object") {
+            var updatedObj = {};
+            for (var key in collection) {
+                updatedObj[key] = func(collection[key], key, collection);
+            }    
+            return updatedObj;
+        }
+    },
+    filter: function filter (arr, func) {
+        var newArr = [];
+        var result;
+        for (var i = 0; i < arr.length; i++) {
+            result = func(arr[i], i, arr)
+            if (result === true) {
+                newArr.push(arr[i])
+            }
+         }
+        return newArr;
+    },
+    map: function (collection, func) {
+        var newCollection;
+        var result;
+        if (Array.isArray(collection) === true) {
+          newCollection = [];
+          for (var i = 0; i < collection.length; i++) {
+            result = func(collection[i], i, collection);
+            newCollection.push(result);
+          }
+          return newCollection;
+        } 
+        else if (typeof collection === "object") {
+          newCollection = [];
+          for (var key in collection) {
+            result = func(collection[key], key, collection)
+            newCollection.push(result);
+          }
+          return newCollection;
+        }
+    },
+    reject: function (arr, func) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            var result = func(arr[i], i, arr)
+            if (result === false) {
+                newArr.push(arr[i])
+            }
+        }
+        return newArr;
+    },
+    partition: function (arr, func) {
+        var newArr = [[],[]]
+        for (var i = 0; i < arr.length; i++) {
+            var result = func(arr[i], i, arr)
+            if (result) {
+                newArr[0].push(arr[i])
+            }
+            else {
+                newArr[1].push(arr[i])
+            }
+        }
+        return(newArr);
+    }
+};
 
 /** _.partition
 * Arguments:
