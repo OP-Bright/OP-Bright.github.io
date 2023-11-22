@@ -150,28 +150,25 @@ var _ = {
             }
         }
         return(newArr);
-    }
+    },
+    every: function (collection, func) {
+        var newCollection;
+        var result;
+        if (Array.isArray(collection) === true) {
+          newCollection = [];
+          for (var i = 0; i < arr.length; i++) {
+            func(collection[i], i, collection) 
+          }
+
+        } 
+        else if (typeof collection === "object") {
+          newCollection = [];
+          
+        }
+    },
+    // EVERY IS NOT FINISHED.
+
 };
-
-/** _.partition
-* Arguments:
-*   1) An array
-*   2) A function
-* Objectives:
-*   1) Call <function> for each element in <array> passing it the arguments:
-*       element, key, <array>
-*   2) Return an array that is made up of 2 sub arrays:
-*       0) An array that contains all the values for which <function> returned something truthy
-*       1) An array that contains all the values for which <function> returned something falsy
-* Edge Cases:
-*   1) This is going to return an array of arrays.
-* Examples:
-*   _.partition([1,2,3,4,5], function(element,index,arr){
-*     return element % 2 === 0;
-*   }); -> [[2,4],[1,3,5]]
-}
-*/
-
 
 /** _.every
 * Arguments:
