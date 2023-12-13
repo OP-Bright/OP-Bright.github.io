@@ -1,4 +1,4 @@
-var middleWare = require('./../middleware/converter')
+var converter = require('./../middleware/converter')
 var bodyParser = require('body-parser')
 
 var sensorRoutes = require('./../routes/sensors');
