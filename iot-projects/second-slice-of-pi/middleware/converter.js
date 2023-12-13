@@ -18,7 +18,7 @@ module.exports = function() {
 						{'<>': 'p', 'html': '${value}'}
 					]}
 				]};
-				res.send(json2html.transform(result, transform));
+				res.send(json2html.transform(req.result, transform));
 				return;
 			} else {
 				res.send(req.result)
