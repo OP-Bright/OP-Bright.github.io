@@ -1,11 +1,11 @@
 const resources = require('./../../resources/model');
+const Gpio = require('onoff').Gpio;
 
 let actuator1, actuator2;
 let model = resources.pi.actuators.leds;
 let pluginName = resources.pi.actuators.leds[1].name + ", " + resources.pi.actuators.leds[2].name;
 
 function connectHardware () {
-	const Gpio = require('onoff').Gpio;
 	  actuator1 = new Gpio(model[1].gpio, 'out')
 	  actuator2  = new Gpio(model[2].gpio, 'out')
 };
