@@ -1,4 +1,4 @@
-var ledsPlugin = require('./plugins/internal/ledsPlugin');
+var ledsPlugin = require('../plugins/internal/ledsPlugin');
 
 const express = require('express'),
 	router = express.Router(),
