@@ -11,6 +11,10 @@ var app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use("/", function (req, res, next) {
+	res.addHeader("Access-Control-Allow-Origin", "*");
+	next();
+  });
 app.use('/pi/sensors', sensorRoutes);
 app.use('/pi/actuators', actuatorRoutes);
 

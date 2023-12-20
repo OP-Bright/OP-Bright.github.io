@@ -74,7 +74,7 @@
 			};
 			socket.onerror = function (error) {
   				console.log("AN ERROR HAS OCCURED");
-   				$(updateElement).html("<h4>AN ERROR HAS OCCURED.<h4>");
+   				$(updateElement).html(`<h4>${JSON.stringify(error)}.<h4>`);
 			};
 		}
 	});
