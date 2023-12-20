@@ -70,6 +70,7 @@
 			};
 			socket.onmessage = function (event) {
 				let result = JSON.parse(event.data);
+				$(updateElement).html("<h4>" + result.value + "<h4>");
 			};
 			socket.onerror = function (error) {
   				console.log("AN ERROR HAS OCCURED");
