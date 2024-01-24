@@ -93,16 +93,22 @@
       paddleCPU.y -= paddleCPU.yVelocity;
     }
   
-// if the middle of the paddle is more htan 14 units lower than the ball, begin to move down.
+// if the middle of the paddle is more than 14 units lower than the ball, begin to move down.
 
 //14 is coded in as a sort of measure of sensitivity. lower, and it moves to meet the ball the more it moves. Lower, and it takes
 //the ball moving farther for it to move. 
 
     // TODO 1: bounce the ball off the top
 
+    if (ball.y < 0)  {
+      ball.yVelocity = -ball.yVelocity
+    }
 
     // TODO 2: bounce the ball off the bottom
 
+    if (ball.y > canvas.height)  {
+      ball.yVelocity = -ball.yVelocity
+    }
 
     // TODO 3: bounce the ball off each of the paddles
 
