@@ -86,9 +86,17 @@
     // AI movement: CPU follows ball //
     if ((paddleCPU.y + midCPU) < (ball.y - 14)) {
       paddleCPU.y += paddleCPU.yVelocity;
+
+// if the middle of the paddle is more than 14 units higher than the ball, beigin to move down.
+
     } else if ((paddleCPU.y + midCPU) > (ball.y + 14)) {
       paddleCPU.y -= paddleCPU.yVelocity;
     }
+  
+// if the middle of the paddle is more htan 14 units lower than the ball, begin to move down.
+
+//14 is coded in as a sort of measure of sensitivity. lower, and it moves to meet the ball the more it moves. Lower, and it takes
+//the ball moving farther for it to move. 
 
     // TODO 1: bounce the ball off the top
 
