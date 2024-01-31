@@ -101,7 +101,7 @@
     // TODO 1: bounce the ball off the top
 
     if (ball.y < 0)  {
-      ball.yVelocity = -ball.yVelocity
+      ball.yVelocity = -ball.yVelocity 
     }
 
     // TODO 2: bounce the ball off the bottom
@@ -112,6 +112,25 @@
 
     // TODO 3: bounce the ball off each of the paddles
 
+    if (ball.x + 20 >= paddleCPU.x) {
+      if (ball.y <= paddleCPU.y + 100 && ball.y >= paddleCPU.y ) {
+        ball.xVelocity = -ball.xVelocity - 0.5
+        
+      }
+    }
+
+    if (ball.x - 20 <= paddlePlayer.x + 20 ) {
+      if (ball.y <= paddlePlayer.y + 100 && ball.y >= paddlePlayer.y ) {
+        ball.xVelocity = -ball.xVelocity + 0.5
+      }
+    }
+    
+    if (ball.x <= -40 || ball.x >= canvas.width + 40 || ball.y >= canvas.height + 40 || ball.y <= 0 -40) {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.xVelocity = 5;
+      ball.yVelocity = 5;
+    }
 
   }
 
@@ -123,5 +142,9 @@
     return paddle;
   }
 
+  console.log(engine);
+  console.log (canvas);
+  console.log (canvas + 4);
+  console.log (HTMLCanvasElement)
 
 }(window, window.createjs, window.opspark, window._));
