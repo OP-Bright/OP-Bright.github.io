@@ -111,28 +111,7 @@
     }
 
     // TODO 3: bounce the ball off each of the paddles
-
-    //Is it touching the CPU paddle ? If so bounce.
-    if (ball.x + 20 >= paddleCPU.x) {
-      if (ball.y <= paddleCPU.y + 100 && ball.y >= paddleCPU.y ) {
-        ball.xVelocity = -ball.xVelocity - 0.5
-        
-      }
-    }
-
-    //Is it touching the players paddle? If so bounce.
-
-
-    //Unaccounted for fringe cases: If the top or bottom of the paddle collides with the ball.
-
-    //RESET THE GAME - Accounted for fringe case of it not bouncing but that should never ever happen
-    if (ball.x <= -40 || ball.x >= canvas.width + 40 || ball.y >= canvas.height + 40 || ball.y <= 0 -40) {
-      ball.x = canvas.width / 2;
-      ball.y = canvas.height / 2;
-      ball.xVelocity = 5;
-      ball.yVelocity = 5;
-    }
-
+    
   }
 
   // helper function that wraps the draw.rect function for easy paddle making
