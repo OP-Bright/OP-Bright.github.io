@@ -34,9 +34,16 @@
   // set initial properties for the ball
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
-  ball.xVelocity = 5;
-  ball.yVelocity = 5;
-
+  var randomStart = getRandomInt(2)
+  if (randomStart === 0) {
+    ball.xVelocity = 5;
+    ball.yVelocity = -5;
+  }
+  if (randomStart === 1) {
+    ball.xVelocity = 5;
+    ball.yVelocity = 5;
+  }
+  
   // add the paddles and the ball to the view
   stage.addChild(paddlePlayer, paddleCPU, ball);
 
@@ -154,8 +161,15 @@
     if (ball.rightEdge < 0 || ball.leftEdge > canvas.width) {
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
-      ball.xVelocity = 5;
-      ball.yVelocity = 5;    
+      var randomStart = getRandomInt(2)
+      if (randomStart === 0) {
+        ball.xVelocity = 5;
+        ball.yVelocity = -5;
+      }
+      if (randomStart === 1) {
+        ball.xVelocity = 5;
+        ball.yVelocity = 5;
+      }
     }
 
   }
@@ -174,3 +188,8 @@
   console.log (HTMLCanvasElement)
 
 }(window, window.createjs, window.opspark, window._));
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+//THANKS MDN WEB DOCS
