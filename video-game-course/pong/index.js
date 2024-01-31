@@ -83,7 +83,7 @@
       paddlePlayer.y = canvas.height - heightPlayer;
     }
 
-    // AI movement: CPU follows ball //
+   // AI movement: CPU follows ball //
     if ((paddleCPU.y + midCPU) < (ball.y - 14)) {
       paddleCPU.y += paddleCPU.yVelocity;
 
@@ -100,18 +100,64 @@
 
     // TODO 1: bounce the ball off the top
 
-    if (ball.y < 0)  {
+    if (ball.y - 20 < 0)  {
       ball.yVelocity = -ball.yVelocity 
     }
 
     // TODO 2: bounce the ball off the bottom
 
-    if (ball.y > canvas.height)  {
+    if (ball.y + 20 > canvas.height)  {
       ball.yVelocity = -ball.yVelocity
     }
 
     // TODO 3: bounce the ball off each of the paddles
     
+    ball.topEdge = ball.y + 20
+    ball.bottomEdge = ball.y - 20
+    ball.leftEdge = ball.x - 20
+    ball.rightEdge = ball.x + 20
+
+    paddlePlayer.topEdge = paddlePlayer.y
+    paddlePlayer.bottomEdge = paddlePlayer.y + 100
+    paddlePlayer.leftEdge = paddlePlayer.x
+    paddlePlayer.rightEdge = paddlePlayer.x + 20
+
+    paddleCPU.topEdge = paddleCPU.y
+    paddleCPU.bottomEdge = paddleCPU.y + 100
+    paddleCPU.leftEdge = paddleCPU.x
+    paddleCPU.rightEdge = paddleCPU.x + 20
+
+    //PLAYER COLLISION//
+
+    //If the ball is not above or below the paddle and hits the right side...
+    if (ball.bottomEdge < paddlePlayer.topEdge || ball.topEdge > paddlePlayer.bottomEdge) {
+
+    }
+    else if (ball.leftEdge <= paddlePlayer.rightEdge && ball.leftEdge >= paddlePlayer.leftEdge) {
+      ball.xVelocity = -ball.xVelocity + 0.5
+    }
+
+
+    //CPU COLLISION//
+
+    //If the ball is not above or below the paddle and hits the left side...
+    if (ball.bottomEdge < paddleCPU.topEdge || ball.topEdge > paddleCPU.bottomEdge) {
+
+    }
+    else if (ball.rightEdge >= paddleCPU.leftEdge && ball.rightEdge <= paddleCPU.rightEdge) {
+      ball.xVelocity = -ball.xVelocity - 0.5
+    }
+
+    //PROBLEMS with Collison: Cannot account for what happens if it hits the top or bottom. It currently jitters if you move the paddle into the ball after it's beyond the edge that bounces.
+    
+    //RESET CODE
+    if (ball.rightEdge < 0 || ball.leftEdge > canvas.width) {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.xVelocity = 5;
+      ball.yVelocity = 5;    
+    }
+
   }
 
   // helper function that wraps the draw.rect function for easy paddle making
