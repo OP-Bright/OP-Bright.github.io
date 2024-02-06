@@ -109,12 +109,14 @@
 
     if (ball.y - 20 < 0)  {
       ball.yVelocity = -ball.yVelocity 
+      createjs.Sound.play("wall")
     }
 
     // TODO 2: bounce the ball off the bottom
 
     if (ball.y + 20 > canvas.height)  {
       ball.yVelocity = -ball.yVelocity
+      createjs.Sound.play("wall")
     }
 
     // TODO 3: bounce the ball off each of the paddles
@@ -142,6 +144,7 @@
     }
     else if (ball.leftEdge <= paddlePlayer.rightEdge && ball.leftEdge >= paddlePlayer.leftEdge) {
       ball.xVelocity = -ball.xVelocity + 0.5
+      createjs.Sound.play("hit")
     }
 
     //CPU COLLISION//
@@ -152,12 +155,14 @@
     }
     else if (ball.rightEdge >= paddleCPU.leftEdge && ball.rightEdge <= paddleCPU.rightEdge) {
       ball.xVelocity = -ball.xVelocity - 0.5
+      createjs.Sound.play("hit");
     }
 
     //PROBLEMS with Collison: Cannot account for what happens if it hits the top or bottom. It currently jitters if you move the paddle into the ball after it's beyond the edge that bounces.
     
     //RESET CODE
     if (ball.rightEdge < 0 || ball.leftEdge > canvas.width) {
+      createjs.Sound.play("wall");
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
       var randomStart = getRandomInt(2)
