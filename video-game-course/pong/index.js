@@ -124,13 +124,13 @@
     ball.leftEdge = ball.x - 20
     ball.rightEdge = ball.x + 20
 
-    paddlePlayer.topEdge = paddlePlayer.y
-    paddlePlayer.bottomEdge = paddlePlayer.y + 100
+    paddlePlayer.topEdge = paddlePlayer.y - 1
+    paddlePlayer.bottomEdge = paddlePlayer.y + 101
     paddlePlayer.leftEdge = paddlePlayer.x
     paddlePlayer.rightEdge = paddlePlayer.x + 20
 
-    paddleCPU.topEdge = paddleCPU.y
-    paddleCPU.bottomEdge = paddleCPU.y + 100
+    paddleCPU.topEdge = paddleCPU.y - 1
+    paddleCPU.bottomEdge = paddleCPU.y + 101
     paddleCPU.leftEdge = paddleCPU.x
     paddleCPU.rightEdge = paddleCPU.x + 20
 
@@ -143,7 +143,6 @@
     else if (ball.leftEdge <= paddlePlayer.rightEdge && ball.leftEdge >= paddlePlayer.leftEdge) {
       ball.xVelocity = -ball.xVelocity + 0.5
     }
-
 
     //CPU COLLISION//
 
