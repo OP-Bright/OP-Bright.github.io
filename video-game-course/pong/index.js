@@ -43,6 +43,19 @@
     ball.xVelocity = 5;
     ball.yVelocity = 5;
   }
+
+    //Initialize score
+    function createScore () {
+      return draw.textfield("Score: 0", "20px Times New Roman", "black", "center", "center", (canvas.width/2), (canvas.height - canvas.height/10));
+    }
+  
+    const theScore = createScore();
+
+    stage.addChild(theScore);
+  
+    let numOfHits = 0
+
+    console.log(theScore)
   
   // add the paddles and the ball to the view
   stage.addChild(paddlePlayer, paddleCPU, ball);
@@ -126,6 +139,7 @@
     ball.leftEdge = ball.x - 20
     ball.rightEdge = ball.x + 20
 
+    /*
     paddlePlayer.topEdge = paddlePlayer.y - 1
     paddlePlayer.bottomEdge = paddlePlayer.y + 101
     paddlePlayer.leftEdge = paddlePlayer.x
@@ -136,6 +150,7 @@
     paddleCPU.leftEdge = paddleCPU.x
     paddleCPU.rightEdge = paddleCPU.x + 20
 
+
     //PLAYER COLLISION//
 
     //If the ball is not above or below the paddle and hits the right side...
@@ -143,8 +158,10 @@
 
     }
     else if (ball.leftEdge <= paddlePlayer.rightEdge && ball.leftEdge >= paddlePlayer.leftEdge) {
-      ball.xVelocity = -ball.xVelocity + 0.5
+      ball.xVelocity = -ball.xVelocity + 1
       createjs.Sound.play("hit")
+      numOfHits += 1;
+      theScore.text = "Score: " + numOfHits;
     }
 
     //CPU COLLISION//
@@ -154,11 +171,34 @@
 
     }
     else if (ball.rightEdge >= paddleCPU.leftEdge && ball.rightEdge <= paddleCPU.rightEdge) {
-      ball.xVelocity = -ball.xVelocity - 0.5
+      ball.xVelocity = -ball.xVelocity - 1
       createjs.Sound.play("hit");
     }
+    */
 
-    //PROBLEMS with Collison: Cannot account for what happens if it hits the top or bottom. It currently jitters if you move the paddle into the ball after it's beyond the edge that bounces.
+    function detectCollision (paddle) {
+      paddle.topEdge = paddle.y - 1
+      paddle.bottomEdge = paddle.y + 101
+      paddle.leftEdge = paddle.x
+      paddle.rightEdge = paddle.x + 20
+
+      if (ball.bottomEdge < paddle.topEdge || ball.topEdge > paddle.bottomEdge) {
+
+      } else if (ball.leftEdge <= paddle.rightEdge && ball.leftEdge >= paddle.leftEdge) {
+        ball.xVelocity = -ball.xVelocity + 1
+        createjs.Sound.play("hit")
+        if (paddle === paddlePlayer) {
+          numOfHits += 1;
+          theScore.text = "Score: " + numOfHits;
+        }
+      } else if (ball.rightEdge >= paddle.leftEdge && ball.rightEdge <= paddle.rightEdge) {
+        ball.xVelocity = -ball.xVelocity - 1
+        createjs.Sound.play("hit");
+      }
+    }
+
+    detectCollision(paddlePlayer);
+    detectCollision(paddleCPU);
     
     //RESET CODE
     if (ball.rightEdge < 0 || ball.leftEdge > canvas.width) {
@@ -177,6 +217,8 @@
     }
 
   }
+
+
 
   // helper function that wraps the draw.rect function for easy paddle making
   function createPaddle({ width = 20, height = 100, x = 0, y = 0, color = '#CCC' } = {}) {
