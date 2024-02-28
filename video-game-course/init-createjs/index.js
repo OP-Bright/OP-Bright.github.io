@@ -68,6 +68,8 @@
    * changes to assets, it must call stage.update();
    */
 
+  var scaleValue = 0.1;
+
   function update(event) {
     container.rotation += 2;
     slowContainer.rotation += 1;
@@ -79,6 +81,14 @@
     if (slowContainer.y < -200) {
       slowContainer.y = canvas.height + 200;
     }
+    if (circle1.scaleX >= 1.5) {
+      scaleValue = -0.1;
+    } else if (circle1.scaleX <= 0.1) {
+      scaleValue = 0.1;
+    }
+    circle1.scaleX += scaleValue;
+    circle1.scaleY += scaleValue;
     stage.update();
+    console.log(circle1);
   }
 })(window, window.createjs);
