@@ -22,10 +22,8 @@
   const circle1 = new createjs.Shape();
   const circle2 = new createjs.Shape();
   const circle3 = new createjs.Shape();
-  const circle4 = new createjs.Shape();
   const container = new createjs.Container();
   const slowContainer = new createjs.Container();
-  const moonContainer = new createjs.Container();
   container.x = canvas.width / 2;
   container.y = canvas.height / 2;
   slowContainer.x = canvas.width / 2;
@@ -43,22 +41,18 @@
   circle1.graphics.beginFill("white").drawCircle(0, 0, radius);
   circle2.graphics.beginFill("royalblue").drawCircle(0, 0, radius + 10);
   circle3.graphics.beginFill("skyblue").drawCircle(0, 0, radius - 10);
-  circle4.graphics.beginFill("skyblue").drawCircle(0, 0, radius - 10);
 
   circle1.x = 1;
   circle2.x = 200;
   circle1.y = circle2.y = 1;
   circle3.x = 50;
   circle3.y = 100;
-  circle4.x = radius + 10;
-  circle4.y = radius + 10;
 
   // ADD DISPLAY OBJECTS TO STAGE //
 
   container.addChild(circle1, circle2);
   slowContainer.addChild(circle3);
-  moonContainer.addChild(circle4);
-  stage.addChild(background, container, slowContainer, moonContainer);
+  stage.addChild(background, container, slowContainer);
 
   // TODO 8: Listen to the 'tick' event  //
 
@@ -77,9 +71,14 @@
   function update(event) {
     container.rotation += 2;
     slowContainer.rotation += 1;
-    moonContainer.x = circle2.x;
-    moonContainer.y = circle2.y;
-    moonContainer.rotation -= 1;
+    container.y -= 10;
+    slowContainer.y -= 10;
+    if (container.y < -200) {
+      container.y = canvas.height + 200;
+    }
+    if (slowContainer.y < -200) {
+      slowContainer.y = canvas.height + 200;
+    }
     stage.update();
   }
 })(window, window.createjs);

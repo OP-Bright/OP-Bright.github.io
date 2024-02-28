@@ -1,122 +1,124 @@
 body {
-    background: rgb(33, 32, 54);
-    color: rgb(33, 32, 54);
-    padding: 10px;
-    font-family: arial;
+  background: rgb(33, 32, 54);
+  color: rgb(33, 32, 54);
+  padding: 10px;
+  font-family: arial;
 }
 #all-contents {
   max-width: 750px;
-    margin: auto;
+  margin: auto;
 }
 
 /* navigation menu */
 
 nav {
-    background: rgb(99, 86, 128);
-   margin: 0px;
-    display: flex;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 0px;
-    border-style:double;
-    border-color: rgb(224, 245, 255);
+  background: rgb(99, 86, 128);
+  margin: 0px;
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 0px;
+  border-style: double;
+  border-color: rgb(224, 245, 255);
 }
 #navigationBar {
-    position: relative;
-    left: 25%
+  position: center;
+  display: inline-block;
+  margin: auto;
 }
 h1 {
-    display: flex;
-    text-align: center;
-    color: white;
-    flex: 1;
-    margin: 0;
+  display: flex;
+  text-align: center;
+  color: white;
+  flex: 1;
+  margin: 0;
 }
 #nav-ul {
-    list-style-image: none;
+  list-style-image: none;
 }
 .nav-li {
-    display: inline-block;
-    padding: 2px;
-    text-align: center;
-    border-style: double;
-    border-color: rgb(99, 86, 128);
-    background-color: rgb(33, 32, 54);
+  display: inline-block;
+  padding: 2px;
+  text-align: center;
+  border-style: double;
+  border-color: rgb(99, 86, 128);
+  background-color: rgb(33, 32, 54);
 }
 a {
-    text-decoration: none;
-    color:rgb(224, 245, 255);
+  text-decoration: none;
+  color: rgb(224, 245, 255);
 }
 
 #nav-ul a:hover {
-    color: rgb(165, 226, 255);
+  color: rgb(165, 226, 255);
 }
 
 #titledrop {
-    text-align: center;
+  text-align: center;
 }
 
 /* main container area beneath nav */
 main {
-    background: rgb(99, 86, 128);
-    display: flex;
-    border-style:double;
-    border-color: rgb(224, 245, 255);
-    padding: 10px;
+  background: rgb(99, 86, 128);
+  display: flex;
+  border-style: double;
+  border-color: rgb(224, 245, 255);
+  padding: 10px;
 }
 .sidebar {
-    margin-right: 25px;
+  margin-right: 25px;
 }
 .sidebar-img {
-    width: 200px;
+  width: 200px;
 }
 .content {
-    flex: 1;
-    padding: 15px;
-    border-style:double;
-    border-color: rgb(99, 86, 128);
+  flex: 1;
+  padding: 15px;
+  border-style: double;
+  border-color: rgb(99, 86, 128);
 }
 li {
-    color:rgb(rgb(224, 245, 255));
+  color: rgb(rgb(224, 245, 255));
 }
 p {
-    color:#fff;
+  color: #fff;
 }
 /* interests styles */
 #interests {
-    padding: 8px;
-    align-self: flex-end;
-    color: #fff;
+  padding: 8px;
+  align-self: flex-end;
+  color: #fff;
 }
-h2, h3 {
-    margin: 0px;
-    color: #fff;
+h2,
+h3 {
+  margin: 0px;
+  color: #fff;
 }
 
- /* portfolio styles */
- .content h1 {
-    color: rgb(255, 255, 255);
+/* portfolio styles */
+.content h1 {
+  color: rgb(255, 255, 255);
 }
 
 #portfolio {
-    list-style-type: none;
-    padding-left: 0;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 #portfolio li {
-    background: #fff;
-    padding: 10px;
-    border-radius: 0px;
-    margin-bottom: 10px;
-    border-style: double;
-    border-color:rgb(99, 86, 128);
+  background: #fff;
+  padding: 10px;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  border-style: double;
+  border-color: rgb(99, 86, 128);
 }
 
 #portfolio li:hover {
-    background: rgb(224, 245, 255);
+  background: rgb(224, 245, 255);
 }
 
 #portfolio a {
-    text-decoration: none;
-    color: rgb(99, 86, 128);
+  text-decoration: none;
+  color: rgb(99, 86, 128);
 }
