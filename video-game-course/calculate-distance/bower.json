@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "EaselJS": "^1.0.2",
-    "V6": "^0.0.2"
+    "V6": "^0.0.2",
+    "InefficiencyJS": "https://github.com/OP-Bright/InefficiencyJS"
   }
 }
