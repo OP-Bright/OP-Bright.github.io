@@ -3,6 +3,7 @@
   // OUR MODULE CODE GOES BELOW HERE //
 
   console.log('index.js initialized!');
+  console.log(inefficiencyJS)
   
   /*
    * In this project, we'll use our getDistance() method to 
@@ -58,7 +59,7 @@
      * the mouse. Store the result in a variable called distance:
      */
     let mouse = {x: stage.mouseX, y: stage.mouseY}
-    let distance = getDistance(shapeUp, mouse)
+    let distance = inefficiencyJS.phyz.calculateDistance(shapeUp, mouse)
     
     /*
      * TODO 6: Check if the mouse is within the area of shapeUp, and set the 
