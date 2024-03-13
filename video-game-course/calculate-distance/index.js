@@ -27,14 +27,16 @@
     radius = 25, // the radius of our two circles
     shapeUp = new createjs.Shape(), // the up state: the mouse is NOT intersecting
     shapeOver = new createjs.Shape(); // the over state: the mouse IS intersecting
+    shapeRect = new createjs.Shape(); // the over state: the mouse IS intersecting
 
   /*
    * Draw two circles, up for when the mouse is not touching it, over
    * for when the mouse is touching it. Note, the createjs API for drawing
    * is somewhat verbouse - it takes a lot of code just to draw a circle.
    */
-  shapeUp.graphics.beginFill('blue').drawCircle(0, 0, radius);
-  shapeOver.graphics.beginFill('red').drawCircle(0, 0, radius);
+  shapeUp.graphics.beginFill('cornflowerblue').drawCircle(0, 0, radius);
+  shapeOver.graphics.beginFill('darkblue').drawCircle(0, 0, radius);
+  shapeRect.graphics.beginFill('lightsteelblue').drawRect(100, 100, 50, 50)
   shapeOver.alpha = 0;
   shapeUp.x = shapeOver.x = canvas.width / 2;
   shapeUp.y = shapeOver.y = canvas.height / 2;
@@ -50,7 +52,7 @@
   textfield.x = (canvas.width - textBounds.width) / 2;
   textfield.y = canvas.height / 2 + 50;
   
-  stage.addChild(shapeUp, shapeOver, textfield);
+  stage.addChild(shapeUp, shapeOver, shapeRect, textfield);
   
   // The update() method is called 60 times a second //
   function update(event) {
