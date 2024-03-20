@@ -62,6 +62,8 @@
      */
     let mouse = {x: stage.mouseX, y: stage.mouseY}
     let distance = inefficiencyJS.phyz.calculateDistance(shapeUp, mouse)
+
+    //calc mouse distance from shapeRect
     
     /*
      * TODO 6: Check if the mouse is within the area of shapeUp, and set the 
