@@ -21,7 +21,8 @@
          * TODO 8: use your gaming lib to 
          * update the position of the body
          */
-        
+        inefficiencyJS.phyz.updatePosition(body);
+
       });
     }
   };
