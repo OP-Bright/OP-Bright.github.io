@@ -1,4 +1,4 @@
-(function(window, opspark, racket) {
+(function(window, opspark, racket, inefficiencyJS) {
   /**
    * Creates and returns the space module. Listens for SPAWN 
    * events, adding any bodies in the event
@@ -50,27 +50,33 @@
             
             // TODO 1: Calculate hit test components
             
-            
+            const distance = inefficiencyJS.phyz.calculateDistance(bodyA, bodyB);
+            const angle = inefficiencyJS.numz.getAngleDegrees(bodyA, bodyB)
+            const minimumDistance = bodyA.radius + bodyB.radius;
               
             // TODO 2: Do collision check: how do we know if bodies are colliding?
-            if(/* replace with collision check */ false) {
+            if(distance < minimumDistance) {
               // console.log('hit!');
               
               // TODO 3: Calculate springToX and springToY 
               
-              
+              const springToX = ((Math.cos(angle) * minimumDistance) + bodyA.x)
+              const springToY = ((Math.sin(angle) * minimumDistance) + bodyA.y)
                 
               // TODO 4: Calculate acceleration to spring-to point, factor in dampeningForce
               
-              
+              const accelerationOnX = ((bodyB.x - springToX) * dampeningForce);
+              const accelerationOnY = ((bodyB.y - springToY) * dampeningForce);
               
               // TODO 5: Apply acceleration to bodyB
               
-              
+              bodyB.velocityX += accelerationOnX;
+              bodyB.velocityY += accelerationOnY;
               
               // TODO 6: Apply inverse acceleration to bodyA
               
-              
+              bodyA.velocityX -= accelerationOnX;
+              bodyA.velocityY -= accelerationOnY;
               
             }
           }
@@ -78,4 +84,4 @@
       }
     };
   };
-}(window, window.opspark, window.opspark.racket));
+}(window, window.opspark, window.opspark.racket, window.inefficiencyJS));

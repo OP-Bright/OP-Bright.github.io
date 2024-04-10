@@ -1,0 +1,23 @@
+{
+  "name": "InefficiencyJS",
+  "main": "index.js",
+  "homepage": "https://github.com/OP-Bright/InefficiencyJS",
+  "description": "awesome library for gamers only.",
+  "keywords": [
+    "gamer"
+  ],
+  "authors": [
+    "OP-Bright"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
