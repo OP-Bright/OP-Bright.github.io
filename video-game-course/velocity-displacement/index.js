@@ -48,6 +48,8 @@
 
   engine.addTickHandlers(space.update).activateTick();
 
+  var keyLeftDown = false;
+  var keyRightDown = false;
   // listen for user pressing keys down //
   document.onkeydown = function (event) {
     /*
@@ -65,8 +67,10 @@
      */
     if (event.key === "ArrowLeft") {
       ship.rotationalVelocity = -5;
+      keyLeftDown = true;
     } else if (event.key === "ArrowRight") {
       ship.rotationalVelocity = 5;
+      keyRightDown = true;
     }
   };
 
@@ -74,19 +78,31 @@
   document.onkeyup = function (event) {
     // TODO 13: How do we stop the application of forces?
     if (event.key === "ArrowLeft") {
-      if (ship.rotationalVelocity === 5) {
-
-      } else {ship.rotationalVelocity = 0;}
-    } 
-    if (event.key === "ArrowRight") {
-      if (ship.rotationalVelocity === -5) {
-
-      } else {ship.rotationalVelocity = 0;}
+      keyLeftDown = false;
     }
+    if (event.key === "ArrowRight") {
+      keyRightDown = false;
+    }
+
+    if (event.key === "ArrowLeft") {
+      if (keyRightDown === true) {
+        ship.rotationalVelocity = 5;
+      } else {
+        ship.rotationalVelocity = 0;
+      }
+    }
+
+    if (event.key === "ArrowRight") {
+      if (keyLeftDown === true) {
+        ship.rotationalVelocity = -5;
+      } else {
+        ship.rotationalVelocity = 0;
+      }
+    }
+
     if (event.key === "ArrowUp") {
       ship.propulsion = 0;
     }
-
   };
 
   function reboundCircularAssetInArea(body, area) {
