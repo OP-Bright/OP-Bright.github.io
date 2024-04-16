@@ -73,8 +73,19 @@
   // listen for user releasing keys //
   document.onkeyup = function (event) {
     // TODO 13: How do we stop the application of forces?
-    ship.propulsion = 0
-    ship.rotationalVelocity = 0
+    if (event.key === "ArrowLeft") {
+      if (ship.rotationalVelocity === 5) {
+
+      } else {ship.rotationalVelocity = 0;}
+    } 
+    if (event.key === "ArrowRight") {
+      if (ship.rotationalVelocity === -5) {
+
+      } else {ship.rotationalVelocity = 0;}
+    }
+    if (event.key === "ArrowUp") {
+      ship.propulsion = 0;
+    }
 
   };
 
