@@ -77,6 +77,10 @@
   // listen for user releasing keys //
   document.onkeyup = function (event) {
     // TODO 13: How do we stop the application of forces?
+    if (event.key === "ArrowUp") {
+      ship.propulsion = 0;
+    }
+   
     if (event.key === "ArrowLeft") {
       keyLeftDown = false;
     }
@@ -85,23 +89,21 @@
     }
 
     if (event.key === "ArrowLeft") {
-      if (keyRightDown === true) {
+      /* if (keyRightDown === true) {
         ship.rotationalVelocity = 5;
       } else {
         ship.rotationalVelocity = 0;
-      }
+      } */
+      ship.rotationalVelocity = keyRightDown? 5: 0;
     }
 
     if (event.key === "ArrowRight") {
-      if (keyLeftDown === true) {
+      /* if (keyLeftDown === true) {
         ship.rotationalVelocity = -5;
       } else {
         ship.rotationalVelocity = 0;
-      }
-    }
-
-    if (event.key === "ArrowUp") {
-      ship.propulsion = 0;
+      } */
+      ship.rotationalVelocity = keyLeftDown? -5: 0;
     }
   };
 
