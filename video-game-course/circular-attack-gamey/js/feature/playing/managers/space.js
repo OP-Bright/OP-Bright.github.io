@@ -56,7 +56,10 @@
                 distanceAttributes = getDistanceAttributes(bodyA, bodyB),
                 hitResult = doRadiiHitTest(distanceAttributes.distance, bodyA, bodyB);
               if (hitResult.isHit) {
-                handleCollision(distanceAttributes, hitResult, phyz.getImpactProperties(bodyA, bodyB));
+                if ((bodyA.type === "projectile" && bodyB.type === "ship") || (bodyA.type === "ship" && bodyB.type === "projectile")) {
+                  console.log("this sucks")
+                } else {
+                handleCollision(distanceAttributes, hitResult, phyz.getImpactProperties(bodyA, bodyB))}
               }
             }
           }

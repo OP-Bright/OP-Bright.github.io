@@ -72,7 +72,7 @@
           this.integrity -= impact;
           if (this.integrity <= 0) {
             fx
-              .makeEmitter(2, 3, "rgba(214, 36, 84, 0.2)", null, [
+              .makeEmitter(2, 3, "rgba(214, 36, 84, 1)", null, [
                 new Proton.RandomDrift(5, 0, .35)
               ])
               .emit({ x: this.x, y: this.y }, 0.5);

@@ -10,6 +10,7 @@
         UP: controls.KEYS.UP,
         LEFT: controls.KEYS.LEFT,
         RIGHT: controls.KEYS.RIGHT,
+        DOWN: controls.KEYS.DOWN,
         FIRE: controls.KEYS.SPACE,
       };
       
@@ -17,7 +18,8 @@
         ship, 
         fire;
         
-      setRateOfFire(level.rateOfFire);
+      setRateOfFire(150);
+      console.log(level.rateOfFire)
 
       function explode() {
         let i, id;
@@ -42,9 +44,11 @@
         fire = _.throttle(player => projectile.fire(player), value, { 'trailing': false });
       }
       
+      //OP-BRIGHT: Attempting to add invincibility frames
+
       function handleCollisionShip(impact) {
         if (this.integrity > 0) {
-          this.integrity -= impact;
+          this.integrity -= 0.3334;
           messenger.dispatch({ type: 'DAMAGE', source: 'ship', target: this });
           if (this.integrity <= 0) {
             explode();
@@ -78,10 +82,12 @@
             ship.rotationalVelocity = 0;
           }
 
-          // up arrow can be pressed in combo with other keys //
+          // up and down arrow can be pressed in combo with other keys but now with each other //
           if (controls.isActive(keyMap.UP)) {
             emitter.emit(ship.getExhaustPoint());
             ship.propulsion = 0.1;
+          } else if (controls.isActive(keyMap.DOWN)) {
+            ship.propulsion = -0.1;
           } else {
             emitter.stop();
             ship.propulsion = 0;

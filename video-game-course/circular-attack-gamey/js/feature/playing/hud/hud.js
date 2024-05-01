@@ -72,8 +72,11 @@
           integrityMeter.x = integrityMeter.y = 2;
           integrity.x = txtScore.getBounds().width + 4;
 
-          hud.x = canvas.width - hud.getBounds().width - 2;
+          hud.x = ship.x - 50
+          hud.y = ship.y - 50
         }
+
+        //TODO ROWAN - Make the Hud follow the player (ideally just the HP, not the score.)
 
         // setup a one-time added-to-parent listener //
         hud.on('added', onAdded);

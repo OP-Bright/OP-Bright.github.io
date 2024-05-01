@@ -497,19 +497,19 @@
          * @param {Shape} onShape: If provided, will draw the polyStar on this Shape, updating its dimensions.
          * @return {Shape}: With the polyStar drawn on it, either a new Shape, or the Shape passed as onShape.
          */
-        randomCircleInArea: function (area, randomizeAlpha, addCross, borderColor, borderThickness, randomRadialProps) {
+        randomCircleInArea: function (area, randomizeAlpha, addCross, borderColor, borderThickness, properties) {
             let props, circle;
             
-            props = (randomRadialProps) ? randomRadialProps : draw.randomRadialProps(area);
+            props = properties;
             
             if (addCross) {
                 // always make sure the cross is visible - it won't be if randomizeAlpha is false //
-                randomizeAlpha = true;
+                randomizeAlpha = false;
                 circle = draw.line(-(props.radius), 0, props.radius, 0, borderColor  || '#000', 2);
                 draw.line(0, -(props.radius), 0, props.radius, borderColor || '#000', 2, circle);
             }
             
-            if (borderColor && !borderThickness) { borderThickness = 1; }
+            if (borderColor && !borderThickness) { borderThickness = 3,5; }
             
             // first draw the circle's border - don't use stroke //
             circle = draw.circle(props.radius+borderThickness, borderColor, null, null, null, null, circle);

@@ -89,6 +89,7 @@
         UP: KEY_UP,
         LEFT: KEY_LEFT,
         RIGHT: KEY_RIGHT,
+        DOWN: KEY_DOWN,
         W: KEY_W,
         A: KEY_A,
         D: KEY_D,
