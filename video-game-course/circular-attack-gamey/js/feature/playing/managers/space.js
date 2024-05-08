@@ -44,6 +44,8 @@
             phyz.updatePosition(body);
           });
 
+          messenger.dispatch({ type: 'MoveHud', source: 'ship', target: this });
+
           // loop backwards over each body in the space: note i > 0 //
           for (let i = active.length - 1; i > 0; i--) {
             // pull out each body one by one //
@@ -57,7 +59,7 @@
                 hitResult = doRadiiHitTest(distanceAttributes.distance, bodyA, bodyB);
               if (hitResult.isHit) {
                 if ((bodyA.type === "projectile" && bodyB.type === "ship") || (bodyA.type === "ship" && bodyB.type === "projectile")) {
-                  console.log("this sucks")
+
                 } else {
                 handleCollision(distanceAttributes, hitResult, phyz.getImpactProperties(bodyA, bodyB))}
               }

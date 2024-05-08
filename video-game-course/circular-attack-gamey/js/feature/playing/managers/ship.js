@@ -43,8 +43,6 @@
       function setRateOfFire(value) {
         fire = _.throttle(player => projectile.fire(player), value, { 'trailing': false });
       }
-      
-      //OP-BRIGHT: Attempting to add invincibility frames
 
       function handleCollisionShip(impact) {
         if (this.integrity > 0) {
@@ -67,6 +65,7 @@
           messenger.dispatch({ type: 'SPAWN', bodies: [ship], source: 'ship' });
           return this;
         },
+        handleCollisionShip,
         setRateOfFire,
         setKeyMap(map) {
           keyMap = map;

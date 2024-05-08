@@ -1,4 +1,7 @@
 (function (window, opspark, _) {
+
+  const messenger = opspark.factory.dispatcher()
+
   const Proton = window.Proton,
     draw = opspark.draw,
     phyz = opspark.racket.physikz,
@@ -57,8 +60,15 @@
     // ASSET BEHAVIORS //
     function updateShip(event) {
       phyz.updateVelocity(this, this.propulsion, this.propulsion);
+      const hitEdgeOfBoard = phyz.reboundCircularAssetInArea(this, canvas);
       phyz.reboundCircularAssetInArea(this, canvas);
+      if (hitEdgeOfBoard) {
+        console.log(opspark.playa.ship.handleCollision) //.handleCollisionShip()
+        opspark.playa.ship.handleCollision()
+      }
     }
+
+    //OP-BRIGHT TODO: handleCollision IS a function, but it thinks that it isn't. FIX IT I DUNNO MAN
 
     function updateOrb(event) {
       phyz.updateVelocity(this, 0, 0);

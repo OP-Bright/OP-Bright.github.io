@@ -51,7 +51,7 @@
           case 'orb':
             if(orb.getNumberActive() < 1) {
               messenger.off('EXPLOSION', onExplosion);
-              setTimeout(() => game.end({message: "HOT THING"}), 2000);
+              setTimeout(() => game.end({message: "VICTORY"}), 2000);
             }
             break;
         }

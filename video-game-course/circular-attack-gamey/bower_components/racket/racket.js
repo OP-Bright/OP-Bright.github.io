@@ -15,6 +15,8 @@
 (function(window, _) {
     window.opspark = window.opspark || {};
 
+    //messenger = opspark.factory.dispatcher()
+
     function sortNumbersAscending(a, b) { return a - b; }
 
     function sortNumbersDecending(a, b) { return b - a; }
@@ -179,18 +181,30 @@
                 if (body.x + radius > right) {
                     body.x = right - radius;
                     body.velocityX *= -1;
+                    if (body.type === "ship") {
+                        return true;
+                    }
                 } else if (body.x - radius < left) {
                     body.x = left + radius;
                     body.velocityX *= -1;
+                    if (body.type === "ship") {
+                        return true;
+                    }
                 }
 
                 // check for hit on top or bottom //
                 if (body.y - radius < top) {
                     body.y = top + radius;
                     body.velocityY *= -1;
+                    if (body.type === "ship") {
+                        return true;
+                    }
                 } else if (body.y + radius > bottom) {
                     body.y = bottom - radius;
                     body.velocityY *= -1;
+                    if (body.type === "ship") {
+                        return true;
+                    }
                 }
             },
 
