@@ -45,8 +45,10 @@
       }
 
       function handleCollisionShip(impact) {
+        console.log({'as': this});
         if (this.integrity > 0) {
           this.integrity -= 0.3334;
+          console.log("dealt damage")
           messenger.dispatch({ type: 'DAMAGE', source: 'ship', target: this });
           if (this.integrity <= 0) {
             explode();
@@ -54,6 +56,8 @@
           }
         }
       }
+      
+      opspark.playa.ship.handleCollision = handleCollisionShip.bind(this)
 
       // return the ship manager api //
       return {

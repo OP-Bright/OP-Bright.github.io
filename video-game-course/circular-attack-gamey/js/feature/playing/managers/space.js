@@ -59,7 +59,7 @@
                 hitResult = doRadiiHitTest(distanceAttributes.distance, bodyA, bodyB);
               if (hitResult.isHit) {
                 if ((bodyA.type === "projectile" && bodyB.type === "ship") || (bodyA.type === "ship" && bodyB.type === "projectile")) {
-
+                  
                 } else {
                 handleCollision(distanceAttributes, hitResult, phyz.getImpactProperties(bodyA, bodyB))}
               }

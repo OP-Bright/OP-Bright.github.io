@@ -1,28 +1,27 @@
 (function (window, opspark, _) {
-
-  const messenger = opspark.factory.dispatcher()
+  const messenger = opspark.factory.dispatcher();
 
   const Proton = window.Proton,
     draw = opspark.draw,
     phyz = opspark.racket.physikz,
     numz = opspark.racket.num;
 
-    function randomIntBetween(min, max) { 
-      return Math.floor(Math.random() * (max - min + 1) + min);
+  function randomIntBetween(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
   //This absolutely REFUSED to carry over from draw.js so I give up and just put it here, i swear to god if you dock points for this
 
   /**
-     * calculateProperties: Returns an object structured to be inserted into randomCircleInArea, so we can easily edit the properties without it being hardcoded.
-     * @return {object} has radius, color, x, and y properties.
-     */
-  function calculateProperties () {
+   * calculateProperties: Returns an object structured to be inserted into randomCircleInArea, so we can easily edit the properties without it being hardcoded.
+   * @return {object} has radius, color, x, and y properties.
+   */
+  function calculateProperties() {
     return {
       radius: randomIntBetween(5, 25),
       color: "#5d759c",
       x: randomIntBetween(0, canvas.width),
       y: randomIntBetween(0, canvas.height),
-    }
+    };
   }
 
   /**
@@ -63,8 +62,8 @@
       const hitEdgeOfBoard = phyz.reboundCircularAssetInArea(this, canvas);
       phyz.reboundCircularAssetInArea(this, canvas);
       if (hitEdgeOfBoard) {
-        console.log(opspark.playa.ship.handleCollision) //.handleCollisionShip()
-        opspark.playa.ship.handleCollision()
+        console.log(this); //.handleCollisionShip()
+        this.handleCollision();
       }
     }
 
@@ -191,7 +190,7 @@
           false,
           "#91a9b3",
           3.5,
-          calculateProperties(),
+          calculateProperties()
         );
         // console.log(`rad: ${orb.radius}`);
         // console.log(`den: ${orb.radius / 20 * 0.5}`);
