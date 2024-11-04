@@ -22,7 +22,11 @@ var KEY = {
   LEFT: 65,
   UP: 87,
   RIGHT: 68,
-  DOWN: 83
+  DOWN: 83,
+  LEFTARROW: 37,
+  UPARROW: 38,
+  RIGHTARROW: 39,
+  DOWNARROW: 40,
 };
 
 // interval variable required for stopping the update function when the game ends
@@ -135,16 +139,16 @@ function checkForNewDirection(event) {
   perpendicular to the current direction
   */
 
-  if (activeKey === KEY.LEFT) { 
+  if (activeKey === KEY.LEFT || KEY.LEFTARROW) { 
     snake.head.direction = "left"; 
   }
-  if (activeKey === KEY.RIGHT) { 
+  if (activeKey === KEY.RIGHT || KEY.RIGHTARROW) { 
     snake.head.direction = "right"; 
   }
-  if (activeKey === KEY.UP) { 
+  if (activeKey === KEY.UP || KEY.UPARROW) { 
     snake.head.direction = "up"; 
   }
-  if (activeKey === KEY.DOWN) { 
+  if (activeKey === KEY.DOWN || KEY.DOWNARROW) { 
     snake.head.direction = "down"; 
   }
 
