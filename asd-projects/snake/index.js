@@ -139,16 +139,28 @@ function checkForNewDirection(event) {
   perpendicular to the current direction
   */
 
-  if (activeKey === KEY.LEFT || KEY.LEFTARROW) { 
+  if (activeKey === KEY.LEFT) { 
     snake.head.direction = "left"; 
   }
-  if (activeKey === KEY.RIGHT || KEY.RIGHTARROW) { 
+  if (activeKey === KEY.RIGHT) { 
     snake.head.direction = "right"; 
   }
-  if (activeKey === KEY.UP || KEY.UPARROW) { 
+  if (activeKey === KEY.UP) { 
     snake.head.direction = "up"; 
   }
-  if (activeKey === KEY.DOWN || KEY.DOWNARROW) { 
+  if (activeKey === KEY.DOWN) { 
+    snake.head.direction = "down"; 
+  }
+  if (activeKey === KEY.LEFTARROW) { 
+    snake.head.direction = "left"; 
+  }
+  if (activeKey === KEY.RIGHTARROW) { 
+    snake.head.direction = "right"; 
+  }
+  if (activeKey === KEY.UPARROW) { 
+    snake.head.direction = "up"; 
+  }
+  if (activeKey === KEY.DOWNARROW) { 
     snake.head.direction = "down"; 
   }
 
